@@ -62,7 +62,8 @@ export default function DataViewModal({open, close, testData}) {
                             top: 'calc(-1/4 * var(--IconButton-size))',
                             right: 'calc(-1/4 * var(--IconButton-size))',
                             boxShadow: '0 2px 12px 0 rgba(0 0 0 / 0.2)',
-                            borderRadius: '50%'
+                            borderRadius: '50%',
+                            bgcolor: 'background.surface'
                         }}
                     />
                     <Typography

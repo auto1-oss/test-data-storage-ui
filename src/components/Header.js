@@ -46,33 +46,7 @@ const styles = {
 
 export default function Header() {
 
-    function ColorSchemeToggle() {
-        const { mode, setMode } = useColorScheme();
-        const [mounted, setMounted] = React.useState(false);
-        React.useEffect(() => {
-            setMounted(true);
-        }, []);
-        if (!mounted) {
-            return <IconButton size="sm" variant="soft" color="neutral" />;
-        }
-        return (
-            <IconButton
-                id="toggle-mode"
-                size="sm"
-                variant="outlined"
-                color="primary"
-                onClick={() => {
-                    if (mode === 'light') {
-                        setMode('dark');
-                    } else {
-                        setMode('light');
-                    }
-                }}
-            >
-                {mode === 'light' ? <DarkModeRoundedIcon /> : <LightModeRoundedIcon />}
-            </IconButton>
-        );
-    }
+    const { mode, setMode } = useColorScheme();
 
     return (
         <Box
@@ -101,7 +75,21 @@ export default function Header() {
                     <GitHubIcon/>
                 </IconButton>
                 <Box paddingLeft={1}>
-                    <ColorSchemeToggle />
+                    <IconButton
+                        id="toggle-mode"
+                        size="sm"
+                        variant="outlined"
+                        color="primary"
+                        onClick={() => {
+                            if (mode === 'light') {
+                                setMode('dark');
+                            } else {
+                                setMode('light');
+                            }
+                        }}
+                    >
+                        {mode === 'light' ? <DarkModeRoundedIcon /> : <LightModeRoundedIcon />}
+                    </IconButton>
                 </Box>
             </Box>
         </Box>

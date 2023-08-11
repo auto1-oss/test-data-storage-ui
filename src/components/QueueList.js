@@ -64,7 +64,7 @@ const QueueList = ({list, fetchData, openEdit, openDelete}) => {
                 style={{height: getListHeight()}}
                 data={list}
                 itemContent={(index, queue) => (
-                    <Box key={queue.dataType} sx={{paddingBottom: '8px'}}>
+                    <Box key={queue.dataType} sx={{paddingTop: '8px'}}>
                         <DataQueueCard key={queue.dataType} queue={queue} fetchItem={handleClickFetchItem}
                                        openDelete={handleOpenDelete} openEdit={handleOpenEdit}/>
                     </Box>
