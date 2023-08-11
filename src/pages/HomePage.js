@@ -30,7 +30,7 @@ import DeleteDialogConfirmation from "../components/DeleteDialogConfirmation";
 
 const styles = {
     container: {
-        width: '100%', display: 'flex', justifyContent: 'center', padding: 4
+        width: '100%', display: 'flex', justifyContent: 'center', padding: 4, bgcolor: 'background.surface'
     },
     queueList: {
         borderRadius: 'sm',
@@ -136,35 +136,33 @@ export const HomePage = () => {
     }, []);
 
     return (
-        <Box sx={{height: '100vh'}}>
+        <Box sx={{height: '100vh', bgcolor: 'background.surface'}}>
             <Header/>
             {queuesLoading &&
                 <Box sx={styles.container}>
                     <CircularProgress variant="soft" size={"md"}/>
                 </Box>}
-            {!queuesLoading && queues.length === 0 &&
-                <Box sx={styles.container}>
-                    <Typography textColor="neutral.600" fontWeight="lg" level="h4">Data queues are not
-                        created</Typography>
-                </Box>}
             <Sheet sx={styles.queueList}>
-                {!queuesLoading && queues.length > 0 &&
-                    <Box id={"searchBox"} sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
-                        <Box width={"20%"}>
-                            <TextField
-                                onChange={handleChange}
-                                value={searchFilter}
-                                placeholder="Search..."
-                                startDecorator={<SearchIcon/>}
-                            />
-                        </Box>
-                        <Box>
-                            <Button onClick={handleOpenAddTypeQueueModal} variant="solid" size={"sm"}>
-                                Add
-                            </Button>
-                        </Box>
+                <Box id={"searchBox"} sx={{display: 'flex', justifyContent: 'space-between', alignItems: 'center'}}>
+                    <Box width={"20%"}>
+                        <TextField
+                            onChange={handleChange}
+                            value={searchFilter}
+                            placeholder="Search..."
+                            startDecorator={<SearchIcon/>}
+                        />
                     </Box>
-                }
+                    <Box>
+                        <Button onClick={handleOpenAddTypeQueueModal} variant="solid" size={"sm"}>
+                            Add
+                        </Button>
+                    </Box>
+                </Box>
+                {!queuesLoading && queues.length === 0 &&
+                    <Box sx={styles.container}>
+                        <Typography textColor="neutral.600" fontWeight="lg" level="h4">Data queues are not
+                            created</Typography>
+                    </Box>}
                 <QueueList
                     list={queues.filter(item => item.dataType.toLowerCase().includes(searchFilter.toLowerCase()))}
                     openEdit={handleOpenEditQueue}

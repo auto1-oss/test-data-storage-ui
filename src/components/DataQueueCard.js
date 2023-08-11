@@ -75,7 +75,7 @@ export default function DataQueueCard({queue, fetchItem, addData, openEdit, open
                     </Typography>
                 </Box>
                 <Box sx={{gap: 1.5, display: 'flex', justifyContent: 'flex-end'}}>
-                    <Chip variant={"soft"} sx={{borderRadius: '8px'}}>{queue.count}</Chip>
+                    <Chip variant={"soft"} color={queue.count === 0 ? 'danger' : 'primary'} sx={{borderRadius: '8px'}}>{queue.count}</Chip>
                     <IconButton
                         onClick={handleClickFetchItem}
                         disabled={queue.count === 0}
