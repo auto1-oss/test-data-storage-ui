@@ -1,8 +1,27 @@
+/*-
+ * #%L
+ * test-data-storage-ui
+ * %%
+ * Copyright (C) 2023 Auto1 Group
+ * %%
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ * #L%
+ */
+
 import * as React from 'react';
 import Typography from '@mui/joy/Typography';
 import {Box, Chip, IconButton, ListItemDecorator, Menu, MenuItem} from "@mui/joy";
 import DownloadIcon from '@mui/icons-material/Download';
-import AddIcon from '@mui/icons-material/Add';
 import Sheet from "@mui/joy/Sheet";
 import {DeleteForever, Edit, MoreVert} from "@mui/icons-material";
 
@@ -51,22 +70,12 @@ export default function DataQueueCard({queue, fetchItem, addData, openEdit, open
         })}>
             <Box display={"flex"} justifyContent={"space-between"}>
                 <Box sx={{display: 'flex', alignItems: 'center'}}>
-                    <Typography fontWeight="md" textColor="neutral.700" >
+                    <Typography fontWeight="md"  >
                         {queue.dataType}
                     </Typography>
                 </Box>
                 <Box sx={{gap: 1.5, display: 'flex', justifyContent: 'flex-end'}}>
                     <Chip variant={"soft"} sx={{borderRadius: '8px'}}>{queue.count}</Chip>
-                    {/*<Box>*/}
-                    {/*    <IconButton*/}
-                    {/*        onClick={handleClickAddData}*/}
-                    {/*        size="sm"*/}
-                    {/*        variant="outlined"*/}
-                    {/*        color="primary"*/}
-                    {/*    >*/}
-                    {/*        <AddIcon/>*/}
-                    {/*    </IconButton>*/}
-                    {/*</Box>*/}
                     <IconButton
                         onClick={handleClickFetchItem}
                         disabled={queue.count === 0}
